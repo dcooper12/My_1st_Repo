@@ -13,7 +13,7 @@ class Smart
 			if result == :high
 				guess = rand(1...last_result)
 			else result == :low
-				guess = rand((last_result > 1) ..100)	
+				guess = rand((last_result...100)	
 			end
 			
 				guess
