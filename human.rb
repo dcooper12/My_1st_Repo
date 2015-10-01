@@ -2,6 +2,7 @@ class Human
 	def initialize(name)
 		@name = name
 		@alertness = 0.01
+		@coffee = nil
 	end
 
 	def alertness
@@ -9,11 +10,11 @@ class Human
 	end
 
 	def has_coffee?
-		@has_coffee = false
+		
 	end
 
 	def needs_coffee?
-		@alertness == 0
+		true
 	end
 
 	def buy(coffee)
@@ -22,6 +23,6 @@ class Human
 
 	def drink!
 		@alertness += 0.3
-		@coffee -= 1
+		@coffee.sip!
 	end
 end

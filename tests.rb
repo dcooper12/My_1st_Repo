@@ -21,7 +21,7 @@ class CaffeineTest < MiniTest::Test
     tsmf = Coffee.new "Triple Shot Mocha Frappuccino"
     assert tsmf.full?
 
-    sherri.buy tsmf
+    sherri.buy(tsmf)
     sherri.drink!
     assert_in_epsilon sherri.alertness, 0.33, 0.1
     refute tsmf.full?

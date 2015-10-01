@@ -16,12 +16,11 @@ class Coffee
 	end
 
 	def empty?
-		@coffee_level == 2
+		@coffee_level.zero?
 		# @full = false
 	end
 
-	def drink!
-		@coffee_level -=1
-		
+	def sip!
+		@coffee_level = 1
 	end
 end
