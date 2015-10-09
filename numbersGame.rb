@@ -1,5 +1,5 @@
 puts "Guess a number between 0 and 30"
-n = rand(0...30)
+n = rand(0...100)
 guess = gets.chomp.to_i
 
 

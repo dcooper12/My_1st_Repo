@@ -1,6 +1,8 @@
 require 'pry'
+require 'set'
 
 board = (1..9).to_a
+
 WIN_SET = [[0, 1, 2], [3, 4 ,5], [6, 7, 8], 
 		   [0, 3, 6], [1, 4, 7], [2, 5, 8], 
 		   [0, 4, 8], [2, 4, 6]]
@@ -28,10 +30,11 @@ def greeting
 end
 
 def prompt(board, current_player)
-	show_board(board)
+	# show_board(board)
 	puts "Hey #{current_player} it's your turn"
 	puts "Pick a numbered box"
-	results = gets.chomp.to_i
+	# results = gets.chomp.to_i
+	gets.chomp.to_i
 end
 
 def gameover?(p1moves, p2moves)
@@ -39,8 +42,9 @@ def gameover?(p1moves, p2moves)
 end
 
 def win?(board)
-  WINSET.any? do |x, y, z|
-    board[x] == board[y] && board[y] == board[z]
+  WINSET.any? do |x|
+    # board[x] == board[y] && board[y] == board[z]
+    x.to_set.subset?(p1moves.to_set) || x.to_set.subset?(p2moves.to_set)
   end
 end
 	
@@ -64,10 +68,11 @@ def switch(current_player, player1, player2)
   
 
 def tic_tac_toe(board)
+	board = (1..9).to_a
 	greeting
 	player1 = get_name("Player 1")
 	player2 = get_name("Player 2")
-	update_board
+	update_board(board)
 	current_player = player1
 	previous_player = player2
 	p1moves = []

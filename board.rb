@@ -37,28 +37,5 @@ class Board
 		@current_marker
 	end
 
-	def legal_move?(pmove)
-		if @board.include?(pmove)
-			true
-		else
-			false
-		end
-	end
-
-	def moves(pmove)
-		if legal_move?(pmove)
-		@board[pmove -1] = @current_marker
-			if @current_marker == @p1marker
-				@p1guesses.push(pmove)
-				@current_marker = @p2marker
-			else
-				@p2guesses.push(pmove)
-				@current_marker = @p1marker
-			end
-			else
-				puts "This move is illegal, please pick again!"
-			
-		end
-	end
-
+	
 end

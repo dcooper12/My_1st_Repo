@@ -111,9 +111,9 @@ def hangman(answer)
     guesses.add(guess)
     current_player = switch(current_player, player_one, player_two)
   end
-  current_player = switch(current_player, player_one, player_two)
-  postmortem(answer, guesses, current_player)
-end
+    current_player = switch(current_player, player_one, player_two)
+    postmortem(answer, guesses, current_player)
+  end
 
 def play_again?
   puts "Wanna play again? (y/n)"
