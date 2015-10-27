@@ -1,5 +1,4 @@
 require "pry"
-require "set"
 require "./HumanPlayerT3"
 require "./GamePlay"
 
@@ -11,13 +10,7 @@ class Board
 		 		    [3, 4 ,5], [6, 7, 8]]
 		
 		@board = (1..9).to_a
-		@p1marker = "X"
-		@p2marker = "O"
-		@p1guesses = []
-		@p2guesses = []
-		@current_marker = @p1marker
-
-
+		
 	end
 	
 	def show_board
@@ -32,10 +25,27 @@ class Board
 	def board
 		@board
 	end
+
+	def update_board(move, letter)
+		@board[move -1] = letter
+	end
 		
-	def current_marker
-		@current_marker
+	def win?
+		@win_set.any? do |x, y, z|
+			@board[x] == @board[y] && @board[y] == @board[z]
+		end
+	end
+	
+	def draw?
+		legal_moves.empty?
 	end
 
-	
+	def legal_moves
+		@board.reject { |x| x.is_a?(String) }
+	end
+
+	def game_over?
+		self.win? || self.draw?
+	end
+
 end

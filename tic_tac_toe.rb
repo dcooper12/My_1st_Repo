@@ -1,19 +1,13 @@
 require "pry"
-require "set"
 require "./board"
 require "./HumanPlayerT3"
 require "./GamePlay"
+# require "./t3tests"
 
-	
-def greeting
-	puts
-	puts "Welcome to my Kick-Ass Tic Tac Toe game"
-	puts
-end
-greeting
+
+
 game = GamePlay.new
+
 game.play
 
-
-
-
+# binding.pry
